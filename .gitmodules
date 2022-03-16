@@ -1,0 +1,6 @@
+[submodule "quant-protocol/lib/ds-test"]
+	path = quant-protocol/lib/ds-test
+	url = https://github.com/dapphub/ds-test.git
+[submodule "quant-protocol/lib/forge-std"]
+	path = quant-protocol/lib/forge-std
+	url = https://github.com/brockelmore/forge-std.git
