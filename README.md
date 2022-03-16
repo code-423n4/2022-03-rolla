@@ -93,8 +93,13 @@ All solidity files in the `contracts` folder except `interfaces` and `test` fold
 | timelock/ConfigTimelockController.sol              | 517  |            1            |     1     |
 | utils/EIP712MetaTransaction.sol                    | 157  |            0            |     2     |
 | utils/OperateProxy.sol                             |  13  |            1            |     0     |
-
-TODO: Add libraries to the table above and TimelockController, ERC1155
+| external/openzeppelin/ERC1155.sol                  | 357  |            2            |     1     |
+| libraries/Actions.sol                              | 133  |            0            |     0     |
+| libraries/FundsCalculator.sol                      | 221  |            0            |     1     |
+| libraries/OptionsUtils.sol                         | 150  |            9            |     2     |
+| libraries/ProtocolValue.sol                        |  16  |            0            |     0     |
+| libraries/QuantMath.sol                            | 133  |            0            |     1     |
+| libraries/SignedConverter.sol                      |  14  |            0            |     0     |
 
 The following contracts are OpenZeppelin contracts which are in scope but have minimal changes applied to them:
 
@@ -216,7 +221,13 @@ We allow anyone to do arbitrary calls via the controller using the call action. 
 
 ## Tests
 
-TODO: CHECK THIS AND WRITE FORGE DOCS
+First you'll need to install Foundry to run a couple of the tests:
+
+`curl -L https://foundry.paradigm.xyz | bash && foundryup`
+
+Then pull the git submodules dependencies for the Foundry tests with:
+
+`git submodule update --init --recursive`
 
 We have an exhaustive test suite which you can run using the following command:
 
