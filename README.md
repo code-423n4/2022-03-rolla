@@ -6,7 +6,7 @@
 - Submit findings [using the C4 form](https://code4rena.com/contests/2022-03-rolla-finance-contest/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts March 17, 2022 00:00 UTC
-- Ends March 23, 2022 23:59 UTC
+- Ends March 24, 2022 23:59 UTC
 
 ## Contest scope
 
