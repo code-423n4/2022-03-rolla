@@ -1,0 +1,130 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q1-2022 / ☑rolla-mar17
+==============================================================
+
+[03/14/2022 7:22 PM] itsmetechjay
+👋 Hello and welcome to the contest channel for the $75K USDC **Rolla **contest!
+
+📆 Contest opens March 17, 2022, at 0:00 UTC and runs through March 23, 2022 at 23:59 UTC (7 days).
+
+Please give a warm welcome to the Rolla team, particularly @0xca11.eth | Rolla and @quantizations | Rolla, who will be available for questions either here in the channel or via DM. 
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this contest, consider enabling notifications for this channel. 🐺 ⏰
+
+{Reactions}
+🎉 (5) 🥳 (8) 
+
+[03/15/2022 2:22 PM] itsmetechjay
+Hey wardens, please note that for this contest, **gas optimizations are out of scope.** The Rolla team will not be awarding prize funds for gas-specific submissions.
+
+{Reactions}
+thankyou hi5 (2) C4Keycap 
+
+[03/15/2022 3:44 PM] hardcrypto
+Thanks in advance to all the wardens that are taking a look at our protocol! We're really appreciate it and are here to answer any questions you might have!
+
+{Reactions}
+🙌 (2) 
+
+[03/15/2022 3:47 PM] 0xca11.eth#9656
+Hey everyone! I'm excited to host this contest with Code4rena and answer any questions you may have. Feel free to ask for it here or in my DMs.
+
+{Reactions}
+🙌 (3) 
+
+[03/17/2022 12:30 AM] pedroais
+Hi
+
+
+[03/17/2022 12:31 AM] pedroais
+How did the protocol change since the audit you had in July?
+
+
+[03/17/2022 5:02 AM] quantizations#3869
+Hi @Pedroais - here's a list of changes that we made since the audits - some cosmetic, other functional and some bugfixes that weren't identified in the audits:
+
+- Migrated from solidity `0.7.6` to `0.8.12`
+- Parameterised `strikeAssetDecimals` -> previously this was hardcoded as 6 as we were going to use USDC on polygon. now it's generalised.
+- Restricted `strikeAsset` for options in the `OptionsFactory`
+- Changes to various events - `SpreadMinted` has more parameters. `QuantConfig` was missing events so we added those. Added event to `ChainlinkFixedTimeOracleManager`
+- Timelock changed - no delay when setting protocol values for the first time now
+- Some gas optimizations in the `Controller` - before we were passing structs in memory multiple times, but we put them in the stack now and pass in calldata
+- Removed `strings` library and use enums for actions instead
+- Fixed a bug in the `AssetsRegistry`. Previously had a try catch block which would always revert. Introduced `addAssetWithOptionalERC20Methods` method.
+- Removed `quantityTickSize` from `AssetsRegistry` which is no longer relevant. Was a parameter we were going to use for another codebase.
+- Fixed a bug in meta transactions signature recovery. We were not checking the v value was 27 or 28 when verifying signatures.
+- Removed `OptionsRegistry` and `ReferralRegistry` periphery contracts and related interfaces and libraries.
+- Removed `tokenSupplies` from collateral token
+- Gas optimizations for for loops in various places - use unchecked math to increment and cache length in loop declaration
+- Introduced abstract `QTokenStringUtils` which `QToken` extends from. Same methods from before just migrated to a separate contract which is inherited from
+- Made `TimelockController` abstract
+- Added a lot of natspec that was missing and parameter/return value names in interfaces
+- Paramaterized the `URI` field of the `CollateralToken` which is now taken as a constructor arg instead of hardcoded
+
+{Reactions}
+C4Keycap (2) 👍 
+
+[03/17/2022 5:57 AM] pedroais
+Wow that's very useful thank you
+
+{Reactions}
+🤝 
+
+[03/18/2022 1:20 AM] aparecekarl18#1762
+Hi, Would you like to receive vulnerability regarding your websites?
+
+
+[03/18/2022 4:29 AM] hardcrypto
+The contest details everything in scope here: https://code4rena.com/contests/2022-03-rolla-contest
+
+{Embed}
+https://code4rena.com/contests/2022-03-rolla-contest
+Code4rena Rolla contest
+$75,000 USDC
+17 March 2022—23 March 2022
+Code4rena - ARCHIVE-Q1-2022 - ☑rolla-mar17 [953009382021533696].txt_Files/ebea55fe-d049-4d80-8315-f2823bb07ae1-73E70
+
+
+[03/23/2022 5:33 PM] cloudellie
+@🐺wardens Important update:  since Github has had some unexpected downtime today, which is affecting this contest's submission form, we're extending the submission deadline by 24 hours. 
+
+(We're in the process of updating our website, etc. but you should see that change reflected everywhere soon.)
+
+{Reactions}
+🥳 (9) 
+
+[03/24/2022 5:19 AM] 0xdjango
+Hi, what is the purpose of `protocolUints256` and `protocolBooleans`?
+
+
+[03/24/2022 8:01 AM] 0xca11.eth#9656
+Hey! Just like `protocolAddresses`, they're supposed to stored configured global variables. Only the addresses mapping is used in the Quant Protocol itself, while the uint256 and boolean mappings are currently used by other contracts that interact with and are built on top of the Quant Protocol.
+
+
+[03/24/2022 8:13 AM] 0xdjango
+Very nice, thanks. Do you have a super high-level example of how these other contracts use these variables?
+
+
+[03/24/2022 9:23 AM] 0xca11.eth#9656
+No problem!
+One example would be:
+```
+uint256 someProtocolFee = IQuantConfig(quantConfig).protocolUints256(
+            keccak256("someProtocolFee")
+);```
+
+{Reactions}
+❤️ (3) 
+
+[03/25/2022 12:02 AM] C4
+**🚨 CONTEST ALERT**
+
+@🐺wardens The **Rolla **contest is now closed! Huge thanks to everyone who participated🔍, whether you submitted a finding or not.
+
+What's next: the Rolla team will review the findings over the next couple of days, and then we'll pass them off to the judge. Keep an eye on #📢announcements for regular updates on how the contest is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a gardener if you have questions along the way!
+
+
+==============================================================
+Exported 16 message(s)
+==============================================================
