@@ -65,13 +65,13 @@ Options are settled using chainlink post-expiry. The settlement price submission
 
 #### Call Option
 
-Alice wants to buy a $5000 ETH CALL option expiring on 12/12/2022 from Bob. Bob can mint the option by providing the max loss of the option (1 ETH) to the smart contract which will custody these funds until settlement. He will receive 1 QToken (5000-ETH-C-12-12-2022) and a CollateralToken representing the 1 ETH collateral that was deposited for this option.
+Alice wants to buy a &#36;5000 ETH CALL option expiring on 12/12/2022 from Bob. Bob can mint the option by providing the max loss of the option (1 ETH) to the smart contract which will custody these funds until settlement. He will receive 1 QToken (5000-ETH-C-12-12-2022) and a CollateralToken representing the 1 ETH collateral that was deposited for this option.
 
 Bob can then trade the QToken with Alice for a premium. The method for doing that is beyond the scope of the protocol but can be done via any smart contract trading platform e.g. 0x.
 
-When the 12 December expiry comes around, let's say the ETH price is $4000. The option is settled via a chainlink oracle for the ETH-USD price. Alice's option expires worthless as ETH did not breach (go above) the strike price of $5000. She is entitled to $0 and Bob is entitled to his collateral back. He can exchange his CollateralToken which is burned to claim back his 1 ETH.
+When the 12 December expiry comes around, let's say the ETH price is &#36;4000. The option is settled via a chainlink oracle for the ETH-USD price. Alice's option expires worthless as ETH did not breach (go above) the strike price of &#36;5000. She is entitled to &#36;0 and Bob is entitled to his collateral back. He can exchange his CollateralToken which is burned to claim back his 1 ETH.
 
-Now let's take the same example but imagine the ETH price was $8000 at expiry. Well, in this case, Alice's option expired in the money as it breached (went above) the $5000 strike price. She is entitled to $8000 - $5000 which is $3000. Alice can exercise her QToken to redeem her $3000 (which is paid out in the underlying asset; ETH). So Alice is entitled to $3000 / $8000 = 0.375ETH. Bob is entitled to the collateral put down minus the payout to Alice which is 1 - 0.375 ETH = 0.625ETH. At the time of expiry, this is worth $5000 i.e. the strike price.
+Now let's take the same example but imagine the ETH price was &#36;8000 at expiry. Well, in this case, Alice's option expired in the money as it breached (went above) the &#36;5000 strike price. She is entitled to &#36;8000 - &#36;5000 which is &#36;3000. Alice can exercise her QToken to redeem her &#36;3000 (which is paid out in the underlying asset; ETH). So Alice is entitled to &#36;3000 / &#36;8000 = 0.375ETH. Bob is entitled to the collateral put down minus the payout to Alice which is 1 - 0.375 ETH = 0.625ETH. At the time of expiry, this is worth &#36;5000 i.e. the strike price.
 
 The calculation used for an in the money **call** option on expiration is: \
  \
@@ -81,11 +81,11 @@ The calculation used for an in the money **call** option on expiration is: \
 
 Now let's take the example of a put option. Here, the put buyer thinks the price will go below the strike price and will profit if it does.
 
-Alice wants to buy one $3000 ETH PUT option expiring on 12/12/2022 from Bob. Bob can mint the option by providing the max loss of the option (3000 BUSD) to the smart contract which will custody these funds until settlement. He will receive 1 QToken (3000-ETH-P-12-12-2022) and a CollateralToken representing the 3000 BUSD collateral that was deposited for this option.
+Alice wants to buy one &#36;3000 ETH PUT option expiring on 12/12/2022 from Bob. Bob can mint the option by providing the max loss of the option (3000 BUSD) to the smart contract which will custody these funds until settlement. He will receive 1 QToken (3000-ETH-P-12-12-2022) and a CollateralToken representing the 3000 BUSD collateral that was deposited for this option.
 
-When the 12 December expiry comes around, let's say the ETH price is $3500. The option is settled via a chainlink oracle for the ETH-USD price. Alice's option expires worthless as ETH did not breach (go below) the strike price of $3000. She is entitled to $0 and Bob is entitled to his collateral back. He can exchange his CollateralToken which is burned to claim back his 3000 BUSD.
+When the 12 December expiry comes around, let's say the ETH price is &#36;3500. The option is settled via a chainlink oracle for the ETH-USD price. Alice's option expires worthless as ETH did not breach (go below) the strike price of &#36;3000. She is entitled to &#36;0 and Bob is entitled to his collateral back. He can exchange his CollateralToken which is burned to claim back his 3000 BUSD.
 
-Now let's take the same example but imagine the ETH price was $2000 at expiry. Well, in this case, Alice's option expired in the money as it breached (went below) the $3000 strike price. She is entitled to $3000 - $2000 which is $1000. Alice can exercise her QToken to redeem her $1000 (which is paid out in the collateral asset; BUSD). So Alice is entitled to $1000 \* 1 contract = 1000 BUSD. Bob is entitled to the collateral put down minus the payout to Alice which is 3000 BUSD - 1000 BUSD = 2000 BUSD. At the time of expiry, this is worth $2000 i.e. the strike price. \
+Now let's take the same example but imagine the ETH price was &#36;2000 at expiry. Well, in this case, Alice's option expired in the money as it breached (went below) the &#36;3000 strike price. She is entitled to &#36;3000 - &#36;2000 which is &#36;1000. Alice can exercise her QToken to redeem her &#36;1000 (which is paid out in the collateral asset; BUSD). So Alice is entitled to &#36;1000 \* 1 contract = 1000 BUSD. Bob is entitled to the collateral put down minus the payout to Alice which is 3000 BUSD - 1000 BUSD = 2000 BUSD. At the time of expiry, this is worth &#36;2000 i.e. the strike price. \
  \
 The calculation used for an in the money **put** option on expiration is: \
  \
